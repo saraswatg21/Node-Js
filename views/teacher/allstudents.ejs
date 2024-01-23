@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="/style.css">
+<!-- bootstrap -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- <a href="/teacher/login" class="btn btn-info" style="margin-top:5px;">Back</a> -->
+<a href="/" class="btn btn-info" style="margin-top:5px;">Logout</a>
+<a href="/teacher/alternatives" class="btn btn-info" style="margin-top:5px;">Back</a>
+<h4>All Students</h4>
+<div class="tableDiv">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Roll No.</th>
+        <th>Name</th>
+        <th>Date of Birth</th>
+        <th>Score</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% student.forEach(function(student) { %>
+        <tr class="head">
+          <td>
+            <%= student.rollno %>
+          </td>
+          <td>
+            <%= student.name %>
+          </td>
+          <td>
+            <%= student.dob.toISOString().split('T')[0]  %>
+          </td>
+          <td>
+            <%= student.score %>
+          </td>
+          <td>
+            <a href="/teacher/modify/<%= student.rollno %> "><img style="margin: 0px 5px;"
+                src="https://img.icons8.com/material-outlined/30/000000/edit.png" /></a>
+            <a href="/teacher/delete/<%= student.rollno %> "><img style="margin: 0px 5px;"
+                src="https://img.icons8.com/ios-glyphs/30/000000/filled-trash.png" /></a>
+          </td>
+        </tr>
+        <%}) %>
+    </tbody>
+  </table>
+</div>
